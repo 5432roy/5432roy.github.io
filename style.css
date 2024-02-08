@@ -14,8 +14,13 @@ body, html {
     background-color: #123456; /* Dark blue for contrast */
 }
 
+.heading ul li {
+    font-size: 18px;
+    color: white;
+}
+
 .name {
-    font-size: 24px;
+    font-size: 32px;
     color: white;
 }
 
@@ -55,12 +60,33 @@ body, html {
     background-color: #555;
 }
 
-#introduction, #courses, #future {
+.section {
     padding: 20px;
     background-color: lightgrey;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-top: 20px; /* Adjusted margin for spacing */
 }
+
+.image-list {
+    list-style-type: none; /* Removes the default list styling */
+    padding: 0px; /* Removes the default padding */
+    display: flex; /* Enables flexbox layout */
+    justify-content: space-around; /* Spaces out the list items evenly */
+    align-items: center; /* Aligns the items vertically */
+}
+
+.image-list li {
+    flex: 1; /* Allows each list item to grow and take up equal space */
+    display: flex; /* Enables flexbox within each list item for further alignment */
+    justify-content: center; /* Centers the image within the list item */
+}
+
+.image-list img {
+    height: 20%; /* Sets a fixed height for all images */
+    border-radius: 10px; /* Optional: for a circular image */
+}
+
+
 
 footer {
     background-color: #123456;
