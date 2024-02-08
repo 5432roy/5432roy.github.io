@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shang-Yu Chan's Personal Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="container-fluid">
-        <h1>Shang-Yu Chan</h1>
+    <header>
+        <div class="heading">
+            <div class="name">Shang-Yu Chan</div>
+            <div class="picture">
+                <img src="me.jpg" alt="My Picture">
+            </div>
+        </div>
     </header>
-    <nav class="container-fluid">
+    <nav class="navbar">
         <ul>
             <li><a href="https://github.com/5432roy">GitHub</a></li>
             <li><a href="https://docs.google.com/document/d/1D9K-XgPMsHHdWQElwrTFZut8oVmc5auJ8HFoLPWuWWc/edit?usp=sharing">Resume</a></li>
@@ -18,44 +23,50 @@
             <li><a href="https://leetcode.com/roy5432/">LeetCode</a></li>
         </ul>
     </nav>
-    <main class="container main-content">
-        <section id="about">
-            <h2>About Me</h2>
+    <main>
+        <div id="introduction">
+            <h2>Introduction</h2>
             <p>As an international student from Taiwan currently pursuing my studies at the University of California, Santa Cruz, 
                 I am enthusiastically seeking opportunities to apply my passion for technology and problem-solving in a professional setting through an internship. 
                 My academic journey has allowed me to delve deeply into the realms of Java and Python 3, while also expanding my programming toolkit by learning C and C++ through my coursework. 
                 I thrive on tackling complex challenges, which is why I regularly participate in LeetCode contests, honing my coding skills and analytical thinking. Outside the digital world, I find joy and excitement in skiing, embracing challenges of a different nature. 
-                I am open to both paid and unpaid internship opportunities, eager to contribute my skills and learn from real-world experiences in the tech industry.</p>       </section>
-        <section id="courses">
+                I am open to both paid and unpaid internship opportunities, eager to contribute my skills and learn from real-world experiences in the tech industry.</p>
+        </div>
+        <div id="courses">
             <h2>Taken Courses</h2>
-            <p>*Upper division courses cannot be transfered. Have to re-take some courses again</p>
+            <p>Upper division courses cannot be transfered. Have to re-take some courses again</p>
             <div>
                 <h3>At University of California Santa Cruz</h3>
-                <p><a href="https://github.com/5432roy/Introduction-to-Data-Structures-and-Algorithms">CSE 101 Introduction-to-Data-Structures-and-Algorithms</a>
-                    : Using C and C++ to make linked list, red black tree, and graph ADT, with BFS, DFS, binary search algorithms</p>
-                <p>CSE 120 Computer Architecture : Learning micro architecture, pipeline, cache, multi-thread, and data hazard... etc</p>
-                <p>STAT 131 Introduction to Probability Theory : 
-                    Understand gamma function, beta distribution, poisson process, cumulative distribution function, and the central limit theorem ... etc</p>
+                <ul>
+                    <li><a href="https://github.com/5432roy/Introduction-to-Data-Structures-and-Algorithms">CSE 101 Introduction-to-Data-Structures-and-Algorithms</a>
+                        : Using C and C++ to make linked list, red black tree, and graph ADT, with BFS, DFS, binary search algorithms</li>
+                    <li>CSE 120 Computer Architecture : Learning micro architecture, pipeline, cache, multi-thread, and data hazard... etc</li>
+                    <li>STAT 131 Introduction to Probability Theory : 
+                        Understand gamma function, beta distribution, poisson process, cumulative distribution function, and the central limit theorem ... etc</li>
+                </ul>
             </div>
             <div>
                 <h3>At Washington State University</h3>
-                <p>MATH 220 Introductory Linear Algebra</p>
-                <p>MATH 216 Discrete Structures</p>
-                <p>CPT_S 233 Advanced Data Structures Java : red-black tree, vairous sorting algorithms using Java</p>
-                <p>CPT_S 260 Intro to Computer Architecture</p>
-                <p>CPT_S 317 Automata and Formal Languages : DFA, NFA, Context free grammer, turning machine, and pumping-lemma.</p>
-                <p>CPT_S 322 Software Engineering I : Worked in group to develop the project, Studengage, and learn the software design cycle, OOP properties</p>
-                <p>CPT_S 355 Programming Language Design </p>
-                <p>CPT_S 370 Systems Programming Java : Multi-thread, and sockets and syscall, and I/O using Java</p>
+                <ul>
+                    <li>MATH 220 Introductory Linear Algebra</li>
+                    <li>MATH 216 Discrete Structures</li>
+                    <li>CPT_S 233 Advanced Data Structures Java : red-black tree, vairous sorting algorithms using Java</li>
+                    <li>CPT_S 260 Intro to Computer Architecture</li>
+                    <li>CPT_S 317 Automata and Formal Languages : DFA, NFA, Context free grammer, turning machine, and pumping-lemma.</li>
+                    <li>CPT_S 322 Software Engineering I : Worked in group to develop the project, Studengage, and learn the software design cycle, OOP properties</li>
+                    <li>CPT_S 355 Programming Language Design : </li>
+                    <li>CPT_S 370 Systems Programming Java : </li>
+                </ul>
             </div>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Feel free to reach out to me via email at <a href="mailto:960289@gmail.com">960289@gmail.com</a>.</p>
-        </section>
+        </div>
+        <div id="future">
+            <h2>Future Plans</h2>
+            <p>Placeholder for future content.</p>
+        </div>
     </main>
     <footer>
-        <small>&copy; 2024 Shang-Yu Chan. All rights reserved.</small>
+        <p>&copy; 2024 Shang-Yu Chan. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
