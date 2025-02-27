@@ -78,10 +78,10 @@ const Main = () => {
             <h2>My Leetcode Progress</h2>
             <ul className="image-list" style={{ padding: 0, listStyle: 'none', display: 'flex', gap: '15px', justifyContent: 'center' }}>
               <li>
-                <img width="30%" alt="leetcode solved" src="/pics/leetcodesolvedproblem02072024.png" />
+                <img width="30%" alt="leetcode solved" src="leetcodesolvedproblem02072024.png" />
               </li>
               <li>
-                <img width="60%" alt="contest rating" src="/pics/ContestRating2024-02-07.png" />
+                <img width="60%" alt="contest rating" src="ContestRating2024-02-07.png" />
               </li>
             </ul>
           </section>
