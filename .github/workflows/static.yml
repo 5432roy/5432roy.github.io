@@ -27,13 +27,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # or another version if needed
+          node-version: '16' 
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./roy5432-page 
 
       - name: Build
         run: npm run build
+        working-directory: ./roy5432-page
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -41,8 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'build'  # Deploy the production build folder
-
+          path: 'roy5432-page/build'  
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
