@@ -5,28 +5,33 @@ const BackgroundGraph = () => {
   const nodesRef = useRef([]);
   const nodeRadius = 4;
 
-  const createNode = (x, y) => {
-    return {
-      x,
-      y,
-      vx: (Math.random() - 0.5) * 2,
-      vy: (Math.random() - 0.5) * 2,
-    };
-  };
+  const createNode = (x, y) => ({
+    x,
+    y,
+    vx: (Math.random() - 0.5) * 2,
+    vy: (Math.random() - 0.5) * 2,
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
+    // Set a fixed height (or a percentage of the viewport)
     const setCanvasSize = () => {
-      const parent = canvas.parentElement;
-      canvas.width = parent.clientWidth;
-      canvas.height = parent.clientHeight;
-      console.log('Canvas size set to:', canvas.width, canvas.height);
+      const mainSection = document.querySelector('main');
+      if (!mainSection) return;
+      const rect = mainSection.getBoundingClientRect();
+      // Use window.scrollY/X to convert viewport coordinates to page coordinates
+      canvas.style.position = 'absolute';
+      canvas.style.top = `${rect.top + window.scrollY}px`;
+      canvas.width = window.innerWidth;
+      canvas.height = rect.height;
     };
     setCanvasSize();
 
+    // Initialize nodes
+    nodesRef.current = [];
     for (let i = 0; i < 30; i++) {
       const x = Math.random() * canvas.width;
       const y = Math.random() * canvas.height;
@@ -34,11 +39,10 @@ const BackgroundGraph = () => {
     }
 
     let animationFrameId;
-
     const update = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-      // Update node positions and remove nodes that exit the canvas
+
+      // Update node positions and remove nodes that go out of bounds
       for (let i = nodesRef.current.length - 1; i >= 0; i--) {
         const node = nodesRef.current[i];
         node.x += node.vx;
@@ -52,19 +56,21 @@ const BackgroundGraph = () => {
           nodesRef.current.splice(i, 1);
         }
       }
-    
+
+      // Maintain a constant number of nodes
       while (nodesRef.current.length < 30) {
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
         nodesRef.current.push(createNode(x, y));
       }
-    
+
+      // Draw connecting lines
       nodesRef.current.forEach(node => {
         const nearest = nodesRef.current
           .filter(n => n !== node)
           .map(n => ({
             node: n,
-            dist: Math.hypot(n.x - node.x, n.y - node.y)
+            dist: Math.hypot(n.x - node.x, n.y - node.y),
           }))
           .sort((a, b) => a.dist - b.dist)
           .slice(0, 3);
@@ -76,7 +82,7 @@ const BackgroundGraph = () => {
           ctx.stroke();
         });
       });
-    
+
       // Draw the nodes
       nodesRef.current.forEach(node => {
         ctx.beginPath();
@@ -84,12 +90,12 @@ const BackgroundGraph = () => {
         ctx.fillStyle = '#123456';
         ctx.fill();
       });
-    
+
       animationFrameId = requestAnimationFrame(update);
     };
-
     update();
 
+    // Allow users to add nodes by clicking
     const handleClick = (e) => {
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -110,11 +116,8 @@ const BackgroundGraph = () => {
     <canvas
       ref={canvasRef}
       style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
         zIndex: 0,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
       }}
     />
   );
