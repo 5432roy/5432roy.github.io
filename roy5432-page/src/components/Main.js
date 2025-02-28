@@ -2,28 +2,9 @@ import React from 'react';
 
 const Main = () => {
   return (
-    <main style={{ position: 'relative' }}>
-      {/* Full-width wrapper for the Main section */}
-      <div
-        className="main-wrapper"
-        style={{
-          position: 'relative',
-          width: '100%',
-          minHeight: '600px',
-          overflow: 'hidden',
-          background: 'transparent'
-        }}
-      >
-        <div
-          className="content-container"
-          style={{
-            position: 'relative',
-            zIndex: 1, 
-            margin: '0 auto',
-            padding: '20px',
-            background: 'transparent'
-          }}
-        >
+    <main>
+      <div className="main-wrapper">
+        <div className="content-container">
           <section className="section" id="introduction">
             <h2>Introduction</h2>
             <p>
@@ -76,12 +57,12 @@ const Main = () => {
           </section>
           <section className="section" id="leetcode">
             <h2>My Leetcode Progress</h2>
-            <ul className="image-list" style={{ padding: 0, listStyle: 'none', display: 'flex', gap: '15px', justifyContent: 'center' }}>
+            <ul className="image-list">
               <li>
-                <img width="30%" alt="leetcode solved" src="leetcodesolvedproblem02072024.png" />
+                <img alt="leetcode solved" src="leetcodesolvedproblem02072024.png" />
               </li>
               <li>
-                <img width="60%" alt="contest rating" src="ContestRating2024-02-07.png" />
+                <img alt="contest rating" src="ContestRating2024-02-07.png" />
               </li>
             </ul>
           </section>

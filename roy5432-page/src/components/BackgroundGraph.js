@@ -22,10 +22,9 @@ const BackgroundGraph = () => {
       const mainSection = document.querySelector('main');
       if (!mainSection) return;
       const rect = mainSection.getBoundingClientRect();
-      // Use window.scrollY/X to convert viewport coordinates to page coordinates
       canvas.style.position = 'absolute';
       canvas.style.top = `${rect.top + window.scrollY}px`;
-      canvas.width = document.documentElement.clientWidth;;
+      canvas.width = document.documentElement.clientWidth;
       canvas.height = rect.height;
     };
     setCanvasSize();
@@ -41,13 +40,13 @@ const BackgroundGraph = () => {
     let animationFrameId;
     const update = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
+
       // Iterate backwards so that removal doesn't affect the loop index.
       for (let i = nodesRef.current.length - 1; i >= 0; i--) {
         const node = nodesRef.current[i];
         node.x += node.vx;
         node.y += node.vy;
-    
+
         // Check if the node is outside the canvas bounds.
         if (
           node.x < 0 ||
@@ -55,7 +54,6 @@ const BackgroundGraph = () => {
           node.y < 0 ||
           node.y > canvas.height
         ) {
-          // Randomly choose behavior: bounce (50%) or remove & replace (50%)
           if (nodesRef.current.length > 40 || Math.random() < 0.5) {
             if (node.x < 0 || node.x > canvas.width) {
               node.x = node.x < 0 ? 0 : canvas.width;
@@ -71,12 +69,11 @@ const BackgroundGraph = () => {
             const newX = Math.random() * canvas.width;
             const newY = Math.random() * canvas.height;
             nodesRef.current.push(createNode(newX, newY));
-            // Continue to the next node.
             continue;
           }
         }
       }
-    
+
       // Draw connecting lines.
       nodesRef.current.forEach(node => {
         const nearest = nodesRef.current
@@ -95,7 +92,7 @@ const BackgroundGraph = () => {
           ctx.stroke();
         });
       });
-    
+
       // Draw the nodes.
       nodesRef.current.forEach(node => {
         ctx.beginPath();
@@ -103,7 +100,7 @@ const BackgroundGraph = () => {
         ctx.fillStyle = '#123456';
         ctx.fill();
       });
-    
+
       animationFrameId = requestAnimationFrame(update);
     };
     update();
@@ -126,13 +123,7 @@ const BackgroundGraph = () => {
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{
-        zIndex: 0,
-        backgroundColor: 'transparent',
-      }}
-    />
+    <canvas ref={canvasRef} className="background-canvas" />
   );
 };
 
