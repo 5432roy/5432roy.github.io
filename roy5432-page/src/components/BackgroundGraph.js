@@ -57,7 +57,7 @@ const BackgroundGraph = () => {
           if (nodesRef.current.length > 40 || Math.random() < 0.5) {
             if (node.x < 0 || node.x > canvas.width) {
               node.x = node.x < 0 ? 0 : canvas.width;
-              node.vy = -node.vy;
+              node.vx = -node.vx;
             }
             if (node.y < 0 || node.y > canvas.height) {
               node.y = node.y < 0 ? 0 : canvas.height;
