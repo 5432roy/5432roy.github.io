@@ -4,6 +4,7 @@ import BackgroundGraph from './components/BackgroundGraph'
 import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import HoverBlock from './components/HoverBlock';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <BackgroundGraph />
       <Main />
       <Footer />
+      <HoverBlock />
     </div>
   );
 }

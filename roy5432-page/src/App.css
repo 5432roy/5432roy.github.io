@@ -172,3 +172,29 @@ footer {
   text-align: center;
   padding: 15px 0;
 }
+
+/* Hover Block */
+.hover-block {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 1s ease, background-color 0.3s ease;
+  pointer-events: auto;
+}
+
+.hover-block.hovered {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hover-block.faded {
+  opacity: 0;
+  pointer-events: none;
+}
+
