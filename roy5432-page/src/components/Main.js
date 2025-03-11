@@ -5,12 +5,37 @@ const Main = () => {
     <main>
       <div className="main-wrapper">
         <div className="content-container">
-          <section className="section" id="introduction">
-            <h2>Introduction</h2>
-            <p>
-              As an international student from Taiwan recently graduated from the University of California, Santa Cruz, I am enthusiastically seeking opportunities to apply my passion for technology and problem-solving in a professional setting through an internship. My academic journey has allowed me to delve deeply into the realms of Java and Python 3, while also expanding my programming toolkit by learning C and C++ through my coursework. I thrive on tackling complex challenges, which is why I regularly participate in LeetCode contests, honing my coding skills and analytical thinking. Outside the digital world, I find joy and excitement in skiing, embracing challenges of a different nature. I am open to both paid and unpaid internship opportunities, eager to contribute my skills and learn from real-world experiences in the tech industry.
-            </p>
+        <section className="section" id="introduction">
+          <h2>Introduction</h2>
+          <p>
+            I’m a driven computer science professional and recent graduate from the University of California, Santa Cruz, proudly representing my international roots from Taiwan. My academic journey—complemented by a Dean’s Award Scholarship—has helped me build a strong foundation in Java, Python, C, and C++, while my regular participation in LeetCode contests has sharpened my analytical and problem-solving skills.
+          </p>
+          <p>
+            Through hands-on experiences such as a Software Engineer Internship at NextLabs and tutoring in computer architecture, I have developed a practical, results-oriented approach to tackling complex challenges. Whether I’m innovating with Unity mods or fine-tuning deep learning models, I am eager to leverage my technical expertise and creative mindset in dynamic, real-world projects.
+          </p>
+        </section>
+          <section className="section" id="work-experience">
+            <h2>Work Experience</h2>
+            <ul>
+              <li>
+                <strong>Software Engineer Intern</strong> at <em>NextLabs</em> (Jun 2024 – Dec 2024)
+                <ul>
+                  <li>Expanded support of the company’s key product, SkyDRM, to Perforce and LabVIEW using Visual Studio, Jenkins, and Windows API.</li>
+                  <li>Identified and mitigated a major data security issue with SkyDRM on Windows systems.</li>
+                  <li>Removed build dependencies among Visual Studio projects, reducing build time by 60%.</li>
+                  <li>Developed a C++ program integrated with a REST API for enhanced connectivity with an Apache Tomcat server.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Computer Architecture Group Tutor</strong> at <em>CSE 120</em> (Mar 2024 – Jun 2024)
+                <ul>
+                  <li>Taught 5–10 students weekly for 6 hours.</li>
+                  <li>Covered topics including parallel processing and combinational/sequential digital components.</li>
+                </ul>
+              </li>
+            </ul>
           </section>
+
           <section className="section" id="courses">
             <h2>Taken Courses</h2>
             <p>*Upper division courses cannot be transferred. Have to re-take some courses again</p>
