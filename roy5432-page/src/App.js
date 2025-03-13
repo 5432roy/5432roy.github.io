@@ -5,6 +5,7 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import HoverBlock from './components/HoverBlock';
+import SectionNav from './components/SectionNav'
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Main />
       <Footer />
       <HoverBlock />
+      <SectionNav />
     </div>
   );
 }
