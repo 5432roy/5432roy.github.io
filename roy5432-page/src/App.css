@@ -93,11 +93,9 @@ header {
   color: #fff;
 }
 
-/* Main Content */
+/* Enable scroll snapping on the scrolling container (e.g., <main>) */
 main {
-  padding: 30px;
-  max-width: 1100px;
-  margin: 0 auto;
+  scroll-snap-type: y mandatory;
 }
 
 .main-wrapper {
@@ -117,11 +115,12 @@ main {
 }
 
 .section {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 30px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Optional: enable scroll snapping for smoother transitions */
+  scroll-snap-align: start;
 }
 
 .section h2 {
