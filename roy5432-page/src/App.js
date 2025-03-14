@@ -1,23 +1,28 @@
 import React from 'react';
-import Main from './components/Main';
-import BackgroundGraph from './components/BackgroundGraph'
-import Header from './components/Header';
-import NavBar from './components/NavBar';
+import Home from './components/Home';
+import Courses from './components/Courses';
+import WorkExperience from './components/WorkExperience';
+import Projects from './components/Projects';
+import LeetCode from './components/LeetCode';
 import Footer from './components/Footer';
+import Introduction from './components/Introduction';
+import SectionNav from './components/SectionNav';
 import HoverBlock from './components/HoverBlock';
-import SectionNav from './components/SectionNav'
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <NavBar />
-      <BackgroundGraph />
-      <Main />
-      <Footer />
-      <HoverBlock />
       <SectionNav />
+      <HoverBlock />
+      <Home />
+      <Introduction />
+      <Courses />
+      <WorkExperience />
+      <Projects />
+      <LeetCode />
+      <Footer />
     </div>
   );
 }

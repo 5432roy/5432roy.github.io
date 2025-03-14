@@ -5,6 +5,7 @@ const BackgroundGraph = () => {
   const nodesRef = useRef([]);
   const nodeRadius = 4;
 
+  // Helper function to create a node with random velocity
   const createNode = (x, y) => ({
     x,
     y,
@@ -17,19 +18,25 @@ const BackgroundGraph = () => {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    // Set a fixed height (or a percentage of the viewport)
+    // Ensure the .home-section in your CSS is position: relative
+    // so the canvas can be absolutely positioned inside it.
+    canvas.style.position = 'absolute';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+
+    // Dynamically set the canvas size to match its parent (.home-section)
     const setCanvasSize = () => {
-      const mainSection = document.querySelector('main');
-      if (!mainSection) return;
-      const rect = mainSection.getBoundingClientRect();
-      canvas.style.position = 'absolute';
-      canvas.style.top = `${rect.top + window.scrollY}px`;
-      canvas.width = document.documentElement.clientWidth;
+      const parent = canvas.parentNode; // The parent is .home-section
+      if (!parent) return;
+      const rect = parent.getBoundingClientRect();
+      canvas.width = rect.width;
       canvas.height = rect.height;
     };
+
+    // Initial sizing
     setCanvasSize();
 
-    // Initialize nodes
+    // Initialize some nodes
     nodesRef.current = [];
     for (let i = 0; i < 30; i++) {
       const x = Math.random() * canvas.width;
@@ -39,21 +46,23 @@ const BackgroundGraph = () => {
 
     let animationFrameId;
     const update = () => {
+      // Clear the canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Iterate backwards so that removal doesn't affect the loop index.
+      // Move each node
       for (let i = nodesRef.current.length - 1; i >= 0; i--) {
         const node = nodesRef.current[i];
         node.x += node.vx;
         node.y += node.vy;
 
-        // Check if the node is outside the canvas bounds.
+        // If node goes out of bounds, reflect or regenerate it
         if (
           node.x < 0 ||
           node.x > canvas.width ||
           node.y < 0 ||
           node.y > canvas.height
         ) {
+          // If there are already many nodes, or randomly, just reflect velocity
           if (nodesRef.current.length > 40 || Math.random() < 0.5) {
             if (node.x < 0 || node.x > canvas.width) {
               node.x = node.x < 0 ? 0 : canvas.width;
@@ -64,27 +73,27 @@ const BackgroundGraph = () => {
               node.vy = -node.vy;
             }
           } else {
-            // Remove the node and generate a new one.
+            // Otherwise remove and create a new node
             nodesRef.current.splice(i, 1);
             const newX = Math.random() * canvas.width;
             const newY = Math.random() * canvas.height;
             nodesRef.current.push(createNode(newX, newY));
-            continue;
           }
         }
       }
 
-      // Draw connecting lines.
-      nodesRef.current.forEach(node => {
+      // Draw connecting lines to nearest neighbors
+      nodesRef.current.forEach((node) => {
         const nearest = nodesRef.current
-          .filter(n => n !== node)
-          .map(n => ({
+          .filter((n) => n !== node)
+          .map((n) => ({
             node: n,
-            dist: Math.hypot(n.x - node.x, n.y - node.y)
+            dist: Math.hypot(n.x - node.x, n.y - node.y),
           }))
           .sort((a, b) => a.dist - b.dist)
           .slice(0, 3);
-        nearest.forEach(item => {
+
+        nearest.forEach((item) => {
           ctx.beginPath();
           ctx.moveTo(node.x, node.y);
           ctx.lineTo(item.node.x, item.node.y);
@@ -93,8 +102,8 @@ const BackgroundGraph = () => {
         });
       });
 
-      // Draw the nodes.
-      nodesRef.current.forEach(node => {
+      // Draw each node
+      nodesRef.current.forEach((node) => {
         ctx.beginPath();
         ctx.arc(node.x, node.y, nodeRadius, 0, Math.PI * 2);
         ctx.fillStyle = '#123456';
@@ -105,7 +114,7 @@ const BackgroundGraph = () => {
     };
     update();
 
-    // Allow users to add nodes by clicking
+    // Add new nodes on click
     const handleClick = (e) => {
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -113,8 +122,11 @@ const BackgroundGraph = () => {
       nodesRef.current.push(createNode(x, y));
     };
     canvas.addEventListener('click', handleClick);
+
+    // Resize listener
     window.addEventListener('resize', setCanvasSize);
 
+    // Cleanup on unmount
     return () => {
       cancelAnimationFrame(animationFrameId);
       canvas.removeEventListener('click', handleClick);
@@ -122,9 +134,7 @@ const BackgroundGraph = () => {
     };
   }, []);
 
-  return (
-    <canvas ref={canvasRef} className="background-canvas" />
-  );
+  return <canvas ref={canvasRef} className="background-canvas" />;
 };
 
 export default BackgroundGraph;
