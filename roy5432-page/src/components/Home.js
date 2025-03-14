@@ -9,7 +9,7 @@ const Home = () => {
     if (typedIndex < fullText.length) {
       const timer = setTimeout(() => {
         setTypedIndex(prev => prev + 1);
-      }, 100); // Adjust speed as desired
+      }, 100);
       return () => clearTimeout(timer);
     }
   }, [typedIndex, fullText]);
@@ -20,22 +20,22 @@ const Home = () => {
       <div className="home-content">
         <div className="home-left">
           <h1>{fullText.slice(0, typedIndex)}</h1>
-          <a className="resume-link" href="https://docs.google.com/document/d/1D9K-XgPMsHHdWQElwrTFZut8oVmc5auJ8HFoLPWuWWc/edit?tab=t.0" target="_blank" rel="noopener noreferrer">
-            View Resume
+          <a className="resume-link" href="https://docs.google.com/document/d/1D9K-XgPMsHHdWQElwrTFZut8oVmc5auJ8HFoLPWuWWc/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+            Resume
           </a>
         </div>
         <div className="home-right">
-          <div className="skills">
-            <h3>Skills</h3>
+          <div className="skills-code-block">
+            <p className="comment"># Skills</p>
             <ul>
-              <li>JavaScript / React</li>
-              <li>HTML / CSS</li>
+              <li>.NET</li>
               <li>Java</li>
               <li>Python</li>
-              <li>C / C++</li>
+              <li>C / C++ / C#</li>
               <li>REST APIs</li>
-              <li>Unit Testing</li>
+              <li>Reverse Engineering</li>
             </ul>
+            <p className='comment'># This page is still under development</p>
           </div>
         </div>
       </div>
