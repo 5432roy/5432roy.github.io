@@ -9,7 +9,7 @@ const Home = () => {
     if (typedIndex < fullText.length) {
       const timer = setTimeout(() => {
         setTypedIndex((prev) => prev + 1);
-      }, 100);
+      }, 120);
       return () => clearTimeout(timer);
     }
   }, [typedIndex, fullText]);
@@ -76,6 +76,14 @@ const Home = () => {
               <div className="skills-list">
                 {skills.map((skill, index) => (
                   <span key={index} className="skill-item">{skill}</span>
+                ))}
+              </div>
+            </div>
+            <div className='Misc'>
+              <p className='info-title'># Tools and Frameworks</p>
+              <div className='misc-list'>
+                {misc.map((item, index) => (
+                  <span key={index} className='misc-item'>{item}</span>
                 ))}
               </div>
             </div>
