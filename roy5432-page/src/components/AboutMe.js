@@ -19,18 +19,19 @@ const AboutMe = () => {
 
   // Intersection Observer to toggle animation every time the section is in view
   useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         setIsVisible(entry.isIntersecting);
       });
     }, { threshold: 0.3 });
     
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    observer.observe(node);
     
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      observer.unobserve(node);
     };
   }, []);
 
