@@ -72,7 +72,7 @@ const AboutMe = () => {
         <div className="aboutme-right">
           <h2>About Me</h2>
           <p>
-            I graduated from the University of California Santa Cruz in December 2024 with a strong foundation in computer science. My internship at NextLabs refined my skills and equipped me with the hand-on experience in C programming, debugging and reverse engineering.
+            I graduated from the University of California Santa Cruz in 2024 with a strong foundation in computer science. My internship at NextLabs refined my skills and equipped me with the hand-on experience in C programming, debugging and reverse engineering.
           </p>
           <p>
             I further demonstrate my technical versatility through personal projects that highlight my independent innovation and collaborative spirit. Notably, I developed a mod for Oxygen Not Included with 200+ and growing users on Steam. This project deepened my expertise in .NET development and reverse engineering, while reinforcing my commitment to continuous learning and creative problem-solving. I am driven to push boundaries and deliver impactful results.
