@@ -2,12 +2,12 @@ import React from 'react';
 
 const SectionNav = () => {
   const sections = [
-    { id: 'Home', label: 'Home' },
-    { id: "aboutMe", label: "About"},
-    { id: 'courses', label: 'Courses' },
-    { id: 'work-experience', label: 'Work' },
-    { id: 'personal-projects', label: 'Projects' },
-    { id: 'leetcode', label: 'LeetCode' },
+    { id: 'Home', label: 'Home', icon: 'home.png' },
+    { id: "aboutMe", label: "About", icon: 'man.png'},
+    { id: 'courses', label: 'Courses' , icon: 'school.png'},
+    { id: 'work-experience', label: 'Work', icon: 'work.png'},
+    { id: 'personal-projects', label: 'Projects', icon: 'code.png' },
+    { id: 'leetcode', label: 'LeetCode', icon: 'algorithm.png' }
   ];
 
   const scrollToSection = (id) => {
@@ -25,7 +25,11 @@ const SectionNav = () => {
           className="nav-button"
           onClick={() => scrollToSection(section.id)}
         >
-          {section.label}
+          {section.icon ? (
+            <img src={section.icon} alt={section.label} />
+          ) : (
+            section.label
+          )}
         </button>
       ))}
     </div>
