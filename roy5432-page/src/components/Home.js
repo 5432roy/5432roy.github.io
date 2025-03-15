@@ -26,20 +26,23 @@ const Home = () => {
     }
   }, [nameIndex, name]);
 
-  const skills = [
-    "JavaScript", 
-    "React", 
-    "HTML/CSS", 
+  const skills = [ 
     "Java", 
     "Python", 
-    "C/C++", 
-    "REST APIs", 
-    "Unit Testing"
+    "C/C++",
+    "C#", 
   ];
   const projects = [
-    "OxygenNotInclded Mod", 
+    "OxygenNotInclded Mods", 
     "SP500-with-LSTM"
   ];
+  const misc = [
+    "Visual Studio",
+    "React",
+    "Jenkins",
+    ".NET",
+    "Reverse Engineering",
+  ]
 
   const resumeLink = "https://docs.google.com/document/d/1D9K-XgPMsHHdWQElwrTFZut8oVmc5auJ8HFoLPWuWWc/edit?usp=sharing";
 
