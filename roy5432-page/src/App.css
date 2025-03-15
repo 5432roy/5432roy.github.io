@@ -93,7 +93,7 @@ body, html {
   color: #d4d4d4;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   width: 100%;
-  max-width: 800px; 
+  max-width: fit-content; 
 }
 
 /* Each info box inside home-info */
@@ -194,7 +194,7 @@ body, html {
   flex: 1;
   min-width: 250px;
   text-align: center;
-  background-color: #1e1e1e; /* New background for left side */
+  background-color: #1e1e1e;
   padding: 20px;
   border-radius: 8px;
   transition: transform 0.3s ease, background-color 0.3s ease;
@@ -261,6 +261,19 @@ body, html {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 15px;
+}
+
+.aboutme-bottom {
+  display: flex;
+  max-width: fit-content;
+  background-color: #1e1e1e;
+  padding: 10px 10px;
+}
+
+.aboutme-block {
+  background-color: #154797;
+  text-align: center;
+  margin: 0 10px; /* Horizontal margin for spacing */
 }
 
 
