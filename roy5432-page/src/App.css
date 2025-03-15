@@ -22,7 +22,6 @@ body, html {
   z-index: 1;
 }
 
-
 /* ---------- Home Section (Blue Theme) ---------- */
 .home-section {
   position: relative;
@@ -43,21 +42,24 @@ body, html {
   max-width: 1200px;
   gap: 40px;
   padding: 20px;
-  pointer-events: none;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Left side: Animated name and resume link */
 .home-left {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
 }
 
 .home-left h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  white-space: nowrap;  /* Ensure the full name remains on one line */
 }
 
 .resume-link {
@@ -73,59 +75,82 @@ body, html {
   border-color: #ffcc00;
 }
 
+/* Right side: Expanded info container */
 .home-right {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: left; 
 }
 
-/* Code snippet container for skills */
-.skills-code-block {
-  pointer-events: none; 
-  background-color: #1e1e1e;  
+/* Info container styled like a coding UI */
+.home-info {
+  background-color: #1e1e1e;
   padding: 20px;
   border-radius: 6px;
-  font-family: 'Fira Code', monospace; 
+  font-family: 'Fira Code', monospace;
   color: #d4d4d4;
-  line-height: 1.6;
-  max-width: 400px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 800px; 
 }
 
-/* Comment style (greenish, italic) */
-.comment {
+/* Each info box inside home-info */
+.home-info .info-box {
+  margin-bottom: 20px;
+}
+
+/* Info title styled as a comment, starting with '#' */
+.home-info .info-title {
   color: #6A9955;
   font-style: italic;
   margin-bottom: 8px;
 }
 
-/* Skills styled as 'keywords' in code syntax (purple hue) */
-.keyword {
-  color: #C586C0;
-  margin-right: 10px;
+/* Info content (for education & work experience) stays on one line if possible */
+.home-info .info-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 15px;
 }
 
+/* Skills and Projects layout using flex */
+.home-info .skills-list,
+.home-info .projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 
+.home-info .skill-item {
+  background-color: #2c2e33;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.home-info .project-item {
+  background-color: #3a3a3a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
 
 /* ---------- Non-Home Sections (Introduction, Courses, WorkExperience, Projects, LeetCode) ---------- */
-/* Each section takes full screen height for scroll-snap,
-   and we add left padding to avoid overlapping SectionNav. */
 .section {
   min-height: 100vh;
   scroll-snap-align: start;
-  background-color: rgba(30, 32, 36, 0.95); 
+  background-color: rgba(30, 32, 36, 0.95);
   color: #e4e4e4;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 60px 100px; 
+  padding: 60px 100px;
   margin: 0;
 }
 
-/* Section Titles */
 .section h2 {
   margin-top: 0;
   margin-bottom: 20px;
@@ -135,13 +160,12 @@ body, html {
   color: #e4e4e4;
 }
 
-/* For bullet lists in these sections */
 .section ul {
   list-style: disc inside;
   font-size: 1rem;
 }
 
-/* ---------- Introduction (if separate from .section, ensure it matches the same style) ---------- */
+/* ---------- Introduction Section (if separate) ---------- */
 .introduction-section {
   min-height: 100vh;
   scroll-snap-align: start;
@@ -260,17 +284,19 @@ footer {
 }
 
 /* ---------- Responsive Adjustments ---------- */
-@media (max-width: 768px) {
-  .home-section {
-    padding: 20px;
+@media (max-width: 900px) {
+  .home-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-  .home-content h1 {
-    font-size: 2.5rem;
+  .home-left,
+  .home-right {
+    align-items: center;
   }
-  .home-content .skills li {
-    font-size: 1rem;
+  .home-info {
+    max-width: 90%;
   }
-
   .section,
   .introduction-section {
     padding: 40px 20px;
