@@ -3,7 +3,7 @@ import React from 'react';
 const SectionNav = () => {
   const sections = [
     { id: 'Home', label: 'Home' },
-    { id: "introduction", label: "About"},
+    { id: "aboutMe", label: "About"},
     { id: 'courses', label: 'Courses' },
     { id: 'work-experience', label: 'Work' },
     { id: 'personal-projects', label: 'Projects' },

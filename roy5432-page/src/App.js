@@ -5,7 +5,7 @@ import WorkExperience from './components/WorkExperience';
 import Projects from './components/Projects';
 import LeetCode from './components/LeetCode';
 import Footer from './components/Footer';
-import Introduction from './components/Introduction';
+import AboutMe from './components/AboutMe';
 import SectionNav from './components/SectionNav';
 import HoverBlock from './components/HoverBlock';
 import './App.css';
@@ -17,7 +17,7 @@ function App() {
       <SectionNav />
       <HoverBlock />
       <Home />
-      <Introduction />
+      <AboutMe />
       <Courses />
       <WorkExperience />
       <Projects />

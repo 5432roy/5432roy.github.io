@@ -138,11 +138,11 @@ body, html {
   font-size: 0.9rem;
 }
 
-/* ---------- Non-Home Sections (Introduction, Courses, WorkExperience, Projects, LeetCode) ---------- */
+/* ---------- Non-Home Sections (About, Courses, WorkExperience, Projects, LeetCode) ---------- */
 .section {
   min-height: 100vh;
   scroll-snap-align: start;
-  background-color: rgba(30, 32, 36, 0.95);
+  background-color: rgba(15, 15, 17, 0.95);
   color: #e4e4e4;
   display: flex;
   flex-direction: column;
@@ -165,27 +165,121 @@ body, html {
   font-size: 1rem;
 }
 
-/* ---------- Introduction Section (if separate) ---------- */
-.introduction-section {
+/* ---------- AboutMe Section ---------- */
+.aboutme-section {
   min-height: 100vh;
   scroll-snap-align: start;
   background-color: rgba(30, 32, 36, 0.95);
   color: #e4e4e4;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 60px 100px;
   margin: 0;
 }
 
-.introduction-section h2 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  border-bottom: 2px solid #e4e4e4;
-  padding-bottom: 10px;
-  color: #e4e4e4;
+.aboutme-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
+
+/* AboutMe Left: Photo and Social Icons */
+.aboutme-left {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  background-color: #1e1e1e; /* New background for left side */
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.aboutme-left:hover {
+  transform: scale(1.05);
+  background-color: #151515;
+}
+
+.aboutme-photo {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-icons a,
+.social-icons button {
+  background: none;
+  border: none;
+  color: #ffcc00;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+.social-icons a:hover,
+.social-icons button:hover {
+  text-decoration: underline;
+}
+
+.copy-message {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: #6A9955;
+}
+
+/* AboutMe Right: About Text */
+.aboutme-right {
+  flex: 2;
+  min-width: 300px;
+  text-align: left;
+}
+
+.aboutme-right h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.aboutme-right p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+
+/* ---------- Courses Section ---------- */
+
+/* ---------- Work Section ---------- */
+.work-section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  background-color: rgba(30, 32, 36, 0.95);
+  color: #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 100px;
+  margin: 0;
+}
+
 
 /* ---------- LeetCode Image List ---------- */
 .image-list {
@@ -297,8 +391,17 @@ footer {
   .home-info {
     max-width: 90%;
   }
-  .section,
-  .introduction-section {
+
+  .section
+  {
     padding: 40px 20px;
+  }
+
+  .aboutme-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .aboutme-right {
+    text-align: center;
   }
 }
