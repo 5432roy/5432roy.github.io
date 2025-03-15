@@ -208,11 +208,6 @@ body, html {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.aboutme-left:hover {
-  transform: scale(1.05);
-  background-color: #151515;
-}
-
 .aboutme-photo {
   width: 250px;
   height: 250px;
@@ -269,6 +264,7 @@ body, html {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 15px;
+  color: rgb(199, 199, 199);
 }
 
 .aboutme-bottom {
@@ -276,12 +272,52 @@ body, html {
   max-width: fit-content;
   background-color: #1e1e1e;
   padding: 10px 10px;
+  border-radius: 8px 8px;
 }
 
 .aboutme-block {
   background-color: #154797;
   text-align: center;
   margin: 0 10px; /* Horizontal margin for spacing */
+  border-radius: 8px 8px;
+  color: #3a3a3a;
+}
+
+/* Gradient backgrounds for each block */
+.aboutme-block:nth-child(1) {
+  background: linear-gradient(to bottom, #ff7e5f, #ad7a53);
+}
+.aboutme-block:nth-child(2) {
+  background: linear-gradient(to bottom, #9468c4, #2575fc);
+}
+.aboutme-block:nth-child(3) {
+  background: linear-gradient(to bottom, #43cea2, #185a9d);
+}
+
+/* Keyframes for fadeInOpacity animation */
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation class */
+.animate {
+  animation: fadeInOpacity 1.2s ease-out forwards;
+}
+
+/* Stagger animation delays for each block */
+.aboutme-block.animate:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.aboutme-block.animate:nth-child(2) {
+  animation-delay: 0.8s;
+}
+.aboutme-block.animate:nth-child(3) {
+  animation-delay: 1.2s;
 }
 
 
