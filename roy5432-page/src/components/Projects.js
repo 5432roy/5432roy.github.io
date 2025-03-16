@@ -3,7 +3,7 @@ import React from 'react';
 const Projects = () => {
   return (
     <section className="section" id="personal-projects">
-      <h2>Personal Projects</h2>
+      <h2>Projects</h2>
       <ul>
         <li>
           <strong>OxygenNotInclded Mod</strong> (C# / .NET / Unity)
