@@ -321,9 +321,100 @@ body, html {
 }
 
 
-/* ---------- Courses Section ---------- */
+/* ---------- Course Section Custom Styles (Side-by-Side Layout) ---------- */
+.course-section {
+  display: flex; /* Added to activate flex container properties */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Exact viewport height */
+  padding: 20px 50px;
+  background-color: rgba(15, 15, 17, 0.95);
+  color: #e4e4e4;
+}
 
-/* ---------- Work Section ---------- */
+.course-section h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #e4e4e4;
+  padding-bottom: 5px;
+}
+
+/* Container for the two course divs */
+.course-content {
+  display: flex; 
+  justify-content: center; 
+  width: 100%;
+  max-width: 1200px;       
+  margin: 20px auto 0;     
+  gap: 20px;               
+}
+
+/* Each course list container */
+.course-list {
+  width: 45%;
+}
+
+/* Headings inside each course list */
+.course-list h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #ffcc00;
+  border-bottom: 1px solid #e4e4e4;
+  padding-bottom: 3px;
+}
+
+/* List styling */
+.course-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+}
+
+.course-list li {
+  background-color: #1e1e1e;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.course-list li:hover {
+  background-color: #2c2e33;
+}
+
+.course-list li a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.course-list li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive: For screens narrower than 900px, stack the lists vertically */
+@media (max-width: 900px) {
+  .course-section {
+    height: auto;
+    padding: 20px;
+  }
+  .course-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .course-list {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+/* ---------- Work Experience Section Custom Styles ---------- */
 .work-section {
   min-height: 100vh;
   scroll-snap-align: start;
@@ -336,6 +427,103 @@ body, html {
   padding: 60px 100px;
   margin: 0;
 }
+
+.work-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #e4e4e4;
+  padding-bottom: 5px;
+  color: #e4e4e4;
+}
+
+/* Main container list for work experience items */
+.work-section > ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Individual work experience item */
+.work-section > ul > li {
+  background-color: #1e1e1e;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for work experience item */
+.work-section > ul > li:hover {
+  background-color: #2c2e33;
+}
+
+/* Styling for job title and company */
+.work-section > ul > li strong {
+  color: #ffcc00;
+}
+
+.work-section > ul > li em {
+  color: #cccccc;
+  font-style: normal;
+}
+
+/* Nested list for job responsibilities */
+.work-section > ul > li > ul {
+  list-style: disc inside;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+
+/* Individual responsibility items */
+.work-section > ul > li > ul > li {
+  margin-bottom: 8px;
+  background-color: transparent;
+  padding: 0;
+}
+
+
+/* ---------- Projects Section Custom Styles ---------- */
+#personal-projects ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 800px; 
+}
+
+#personal-projects ul > li {
+  background-color: #1e1e1e;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#personal-projects ul > li:hover {
+  background-color: #2c2e33;
+}
+
+#personal-projects ul > li strong {
+  color: #ffcc00;
+}
+
+#personal-projects ul > li ul {
+  list-style: disc inside;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 0.9rem;
+}
+
+#personal-projects ul > li ul > li {
+  margin-bottom: 8px;
+  background-color: transparent;
+  padding: 0;
+}
+
 
 
 /* ---------- LeetCode Image List ---------- */
