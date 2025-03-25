@@ -397,7 +397,6 @@ body, html {
 /* Responsive: For screens narrower than 900px, stack the lists vertically */
 @media (max-width: 900px) {
   .course-section {
-    height: auto;
     padding: 20px;
   }
   .course-content {
@@ -629,7 +628,7 @@ footer {
 }
 
 /* ---------- Responsive Adjustments ---------- */
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .home-content {
     flex-direction: column;
     align-items: center;
@@ -654,5 +653,106 @@ footer {
   }
   .aboutme-right {
     text-align: center;
+  }
+}
+
+/* ---------- Additional Mobile Adjustments for Screens up to 750px ---------- */
+@media (max-width: 750px) {
+  /* Global text size adjustment */
+  body, html {
+    font-size: 14px;
+  }
+
+  /* Home Section adjustments */
+  .home-content {
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+  }
+  .home-left h1 {
+    font-size: 2.5rem;
+  }
+  .home-info {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  /* General Section adjustments */
+  .section {
+    padding: 40px 20px;
+  }
+
+  /* AboutMe Section adjustments */
+  .aboutme-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+  }
+  .aboutme-left {
+    width: 100%;
+  }
+  .aboutme-right {
+    width: 100%;
+    text-align: left;
+  }
+  .aboutme-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    margin-bottom: 20px;
+  }
+  .aboutme-bottom {
+    display: flex;
+    flex-direction: column; /* Stack blocks vertically */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;  /* Adjust spacing between blocks as needed */
+    max-width: 100%; /* Override fit-content if needed */
+  }
+  
+  
+  /* Courses Section adjustments */
+  .course-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .course-list {
+    width: 100%;
+  }
+
+  /* Work Experience Section adjustments */
+  .work-section > ul {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* Projects Section adjustments */
+  #personal-projects ul {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* LeetCode Image List adjustments */
+  .image-list li {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* Section Navigation adjustments */
+  .section-nav {
+    left: 10px;
+    top: auto;
+    bottom: 10px;
+    transform: none;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+  .section-nav .nav-button {
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
   }
 }
