@@ -30,11 +30,13 @@ const Home = () => {
     "Java", 
     "Python", 
     "C/C++",
-    "C#", 
+    "C#",
+    "SQL"
   ];
   const projects = [
     "OxygenNotInclded Mods", 
-    "SP500-with-LSTM"
+    "SP500-with-LSTM",
+    "Driving Permit Mock Test"
   ];
   const misc = [
     "Visual Studio",
